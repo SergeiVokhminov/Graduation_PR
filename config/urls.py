@@ -21,6 +21,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("users/", include("users.urls"), name="users"),
+    path("tasktracker/", include("tasktracker.urls"), name="tasktracker"),
     path(
         "swagger<format>/", schema_view.without_ui(cache_timeout=0), name="schema-json"
     ),

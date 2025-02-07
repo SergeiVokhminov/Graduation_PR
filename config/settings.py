@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django_celery_beat",
     "drf_yasg",
     "users",
+    "tasktracker",
 ]
 
 # Список промежуточного ПО, которое обрабатывает входящие запросы и выходящие ответы.
