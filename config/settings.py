@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     "django_filters",
     "django_celery_beat",
     "drf_yasg",
-    # "users",
+    "users",
 ]
 
 # Список промежуточного ПО, которое обрабатывает входящие запросы и выходящие ответы.
