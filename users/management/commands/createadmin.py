@@ -4,10 +4,11 @@ from users.models import User
 
 
 class Command(BaseCommand):
-    """Создание пользователя-администратора."""
+    """Класс создания пользователя-администратора."""
 
     def handle(self, *args, **options):
         """Метод создания пользователя-администратора."""
+
         user = User.objects.create(email="admin@test.ru")
         user.set_password("0admin0")
         user.is_active = True
@@ -16,6 +17,6 @@ class Command(BaseCommand):
         user.save()
         self.stdout.write(
             self.style.SUCCESS(
-                f"Пользователь-администратор с электронной почтой {user.email} успешно создан"
+                f"Пользователь-администратор с электронной почтой {user.email} успешно создан!"
             )
         )

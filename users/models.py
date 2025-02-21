@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 
 
@@ -6,9 +6,9 @@ class User(AbstractUser):
     """Поля для модели пользователя."""
 
     username = None
-    email = models.EmailField(unique=True, verbose_name="Электронная почта")
+    email = models.EmailField(unique=True, verbose_name="Электронная почта", help_text="Введите почту")
     phone_number = models.CharField(
-        max_length=35, verbose_name="Номер телефона", blank=True, null=True
+        max_length=35, verbose_name="Номер телефона", help_text="Введите номер телефона", blank=True, null=True
     )
     city = models.CharField(
         max_length=50,
@@ -31,13 +31,27 @@ class User(AbstractUser):
         blank=True,
         null=True,
     )
+    groups = models.ManyToManyField(
+        Group,
+        related_name='custom_user_set',
+        blank=True,
+    )
+    user_permissions = models.ManyToManyField(
+        Permission,
+        related_name='custom_user_permissions_set',
+        blank=True,
+    )
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
     def __str__(self):
+        """Метод для строкового представления объекта User."""
+
         return f"{self.email}"
 
     class Meta:
+        """Мета-информация модели User."""
+
         verbose_name = "Пользователь"
         verbose_name_plural = "Пользователи"
