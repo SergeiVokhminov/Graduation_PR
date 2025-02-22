@@ -7,9 +7,9 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Дипломный проект API Documentation",
+        title="API Документация дипломного проекта.",
         default_version="v1",
-        description="Это мой дипломный проект.",
+        description="Это API описание моего дипломного проекта.",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="contact@snippets.local"),
         license=openapi.License(name="BSD License"),
@@ -21,6 +21,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("users/", include("users.urls"), name="users"),
+    path("employees/", include("employees.urls"), name="employees"),
     path("tasktracker/", include("tasktracker.urls"), name="tasktracker"),
     path(
         "swagger<format>/", schema_view.without_ui(cache_timeout=0), name="schema-json"
