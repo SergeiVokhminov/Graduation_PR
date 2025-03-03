@@ -1,9 +1,9 @@
 from rest_framework.generics import (
+    CreateAPIView,
+    DestroyAPIView,
     ListAPIView,
     RetrieveAPIView,
-    CreateAPIView,
     UpdateAPIView,
-    DestroyAPIView,
 )
 from rest_framework.permissions import IsAuthenticated
 

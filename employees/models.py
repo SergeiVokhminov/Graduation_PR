@@ -4,9 +4,15 @@ from django.db import models
 class Employee(models.Model):
     """Поля для модели сотрудника."""
 
-    first_name = models.CharField(max_length=50, verbose_name="Имя", help_text="Введите Имя")
-    last_name = models.CharField(max_length=50, verbose_name="Фамилия", help_text="Введите Фамилию")
-    patronymic = models.CharField(max_length=50, verbose_name="Отчество сотрудника:", null=True, blank=True)
+    first_name = models.CharField(
+        max_length=50, verbose_name="Имя", help_text="Введите Имя"
+    )
+    last_name = models.CharField(
+        max_length=50, verbose_name="Фамилия", help_text="Введите Фамилию"
+    )
+    patronymic = models.CharField(
+        max_length=50, verbose_name="Отчество сотрудника:", null=True, blank=True
+    )
     position = models.CharField(
         max_length=100,
         verbose_name="Должность",

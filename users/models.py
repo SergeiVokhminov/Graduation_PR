@@ -6,9 +6,15 @@ class User(AbstractUser):
     """Поля для модели пользователя."""
 
     username = None
-    email = models.EmailField(unique=True, verbose_name="Электронная почта", help_text="Введите почту")
+    email = models.EmailField(
+        unique=True, verbose_name="Электронная почта", help_text="Введите почту"
+    )
     phone_number = models.CharField(
-        max_length=35, verbose_name="Номер телефона", help_text="Введите номер телефона", blank=True, null=True
+        max_length=35,
+        verbose_name="Номер телефона",
+        help_text="Введите номер телефона",
+        blank=True,
+        null=True,
     )
     city = models.CharField(
         max_length=50,
@@ -33,12 +39,12 @@ class User(AbstractUser):
     )
     groups = models.ManyToManyField(
         Group,
-        related_name='custom_user_set',
+        related_name="custom_user_set",
         blank=True,
     )
     user_permissions = models.ManyToManyField(
         Permission,
-        related_name='custom_user_permissions_set',
+        related_name="custom_user_permissions_set",
         blank=True,
     )
 

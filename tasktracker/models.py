@@ -17,10 +17,15 @@ class Task(models.Model):
     )
 
     title = models.CharField(
-        max_length=250, verbose_name="Название задачи", help_text="Введите наименование задачи"
+        max_length=250,
+        verbose_name="Название задачи",
+        help_text="Введите наименование задачи",
     )
     description = models.TextField(
-        verbose_name="Описание задачи", help_text="Введите наименование задачи", null=True, blank=True
+        verbose_name="Описание задачи",
+        help_text="Введите наименование задачи",
+        null=True,
+        blank=True,
     )
     parent_task = models.ForeignKey(
         "self",
@@ -28,7 +33,7 @@ class Task(models.Model):
         related_name="parent",
         verbose_name="Родительская задача",
         null=True,
-        blank=True
+        blank=True,
     )
     employee = models.ForeignKey(
         Employee,
@@ -39,11 +44,19 @@ class Task(models.Model):
         blank=True,
     )
     status = models.CharField(
-        choices=STATUS_CHOICES, verbose_name="Статус", help_text="Введите статус", null=True, blank=True
+        choices=STATUS_CHOICES,
+        verbose_name="Статус",
+        help_text="Введите статус",
+        null=True,
+        blank=True,
     )
     deadline = models.DateField(
-        verbose_name="Deadline", help_text="Введите срок исполнения", null=True, blank=True
+        verbose_name="Deadline",
+        help_text="Введите срок исполнения",
+        null=True,
+        blank=True,
     )
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
     is_active = models.BooleanField(
         default=False, verbose_name="Признак активной задачи"
     )

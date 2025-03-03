@@ -31,14 +31,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     "rest_framework",
     "rest_framework_simplejwt",
     "django_filters",
-    "django_celery_beat",
     "drf_yasg",
     "users",
     "tasktracker",
-    "employees"
+    "employees",
 ]
 
 # Список промежуточного ПО, которое обрабатывает входящие запросы и выходящие ответы.
@@ -81,11 +81,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv("DATABASE_NAME"),
-        "USER": os.getenv("DATABASE_USER"),
-        "PASSWORD": os.getenv("DATABASE_PASSWORD"),
-        "HOST": os.getenv("DATABASE_HOST"),
-        "PORT": os.getenv("DATABASE_PORT", default="5432"),
+        "NAME": os.getenv("POSTGRES_DB"),
+        "USER": os.getenv("POSTGRES_USER"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "HOST": os.getenv("POSTGRES_HOST"),
+        "PORT": os.getenv("POSTGRES_PORT", default="5432"),
     }
 }
 
@@ -143,32 +143,6 @@ LOGIN_REDIRECT_URL = "/"
 # Именованный адрес на который перенаправляется пользователь после выхода
 LOGOUT_REDIRECT_URL = "/"
 
-# Настройка почтового сервера
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.mail.ru"
-EMAIL_PORT = 2525
-# EMAIL_HOST = 'smtp.yandex.ru'
-# EMAIL_PORT = 465
-EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", False) == "True"
-EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", False) == "True"
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-SERVER_EMAIL = EMAIL_HOST_USER
-
-# Адрес на который следует перенаправить неавторизованного пользователя при попытке посетить закрытую страницу сайта
-# LOGIN_URL = "users:login"
-
-# Настройка кэширования
-CACHE_ENABLED = True
-if CACHE_ENABLED:
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.redis.RedisCache",
-            "LOCATION": os.getenv("LOCATION"),
-        }
-    }
-
 # Настройки для REST_FRAMEWORK
 REST_FRAMEWORK = {
     "DEFAULT_FILTER_BACKENDS": [
@@ -187,40 +161,3 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
-
-# Секретный ключ STRIPE
-STRIPE_API_KEY = os.getenv("STRIPE_API_KEY")
-
-# Настройки для Celery
-
-# URL-адрес брокера сообщений. Например, Redis, который по умолчанию работает на порту 6379
-CELERY_BROKER_URL = os.getenv(
-    "CELERY_BROKER_URL"
-)
-
-# URL-адрес брокера результатов, также Redis
-CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
-
-# Часовой пояс для работы Celery
-CELERY_TIMEZONE = TIME_ZONE
-
-# Флаг отслеживания выполнения задач
-CELERY_TASK_TRACK_STARTED = True
-
-# Максимальное время на выполнение задачи
-CELERY_TASK_TIME_LIMIT = 30 * 60
-
-# Словарь с настройками расписания для задач в Celery Beat.
-CELERY_BEAT_SCHEDULE = {
-    "task-name": {
-        "task": "users.tasks.user_last_login",
-        "schedule": timedelta(minutes=15),
-    },
-}
-
-# Настройка, которая указывает, какой модуль и класс использовать для планировщика периодических задач в Celery.
-CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
-
-# Настройки телеграм
-TELEGRAM_URL = os.getenv("TELEGRAM_URL")
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
