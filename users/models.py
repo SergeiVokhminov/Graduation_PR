@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
@@ -29,23 +29,6 @@ class User(AbstractUser):
         help_text="Загрузите Ваш аватар",
         blank=True,
         null=True,
-    )
-    tg_id = models.CharField(
-        max_length=300,
-        verbose_name="ID профиля Telegram",
-        help_text="Введите ID Вашего профиля Telegram",
-        blank=True,
-        null=True,
-    )
-    groups = models.ManyToManyField(
-        Group,
-        related_name="custom_user_set",
-        blank=True,
-    )
-    user_permissions = models.ManyToManyField(
-        Permission,
-        related_name="custom_user_permissions_set",
-        blank=True,
     )
 
     USERNAME_FIELD = "email"

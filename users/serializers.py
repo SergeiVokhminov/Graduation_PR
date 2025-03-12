@@ -4,7 +4,7 @@ from users.models import User
 
 
 class UserSerializer(ModelSerializer):
-    """Сериализатор для модели пользователь."""
+    """Сериализатор для модели пользователя."""
 
     class Meta:
         model = User
