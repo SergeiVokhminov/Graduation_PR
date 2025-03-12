@@ -9,7 +9,6 @@ from rest_framework.permissions import IsAuthenticated
 
 from tasktracker.models import Task
 from tasktracker.serializers import TaskSerializer
-from users.permissions import IsStaff
 
 
 class TaskCreateAPIView(CreateAPIView):
@@ -17,7 +16,7 @@ class TaskCreateAPIView(CreateAPIView):
 
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
-    permission_classes = (IsAuthenticated, IsStaff)
+    permission_classes = (IsAuthenticated,)
 
     def perform_create(self, serializer):
         new_task = serializer.save()
@@ -44,7 +43,7 @@ class TaskUpdateAPIView(UpdateAPIView):
 
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
-    permission_classes = (IsAuthenticated, IsStaff)
+    permission_classes = (IsAuthenticated,)
 
 
 class TaskDeleteAPIView(DestroyAPIView):
@@ -52,4 +51,4 @@ class TaskDeleteAPIView(DestroyAPIView):
 
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
-    permission_classes = (IsAuthenticated, IsStaff)
+    permission_classes = (IsAuthenticated,)

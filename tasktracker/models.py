@@ -6,12 +6,12 @@ from employees.models import Employee
 class Task(models.Model):
     """Поля для модели задача."""
 
-    TODO_STATUS = "ToDo"
+    START_STATUS = "start"
     DONE_STATUS = "Done"
     CLOSED_STATUS = "Closed"
 
     STATUS_CHOICES = (
-        (TODO_STATUS, "К исполнению"),
+        (START_STATUS, "К исполнению"),
         (DONE_STATUS, "Выполнена"),
         (CLOSED_STATUS, "Отменена"),
     )
