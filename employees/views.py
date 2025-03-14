@@ -1,4 +1,4 @@
-from django.db.models import Count
+from django.db.models import Count, Q
 from rest_framework import viewsets
 from rest_framework.generics import (
     CreateAPIView,
@@ -49,20 +49,24 @@ class EmployeeDestroyAPIView(DestroyAPIView):
 
 
 class BusyEmployeesView(viewsets.ViewSet):
-    """Просмотр сотрудников и их задач, отсортированных по количеству активных задач."""
+    """Просмотр списка сотрудников и их задачи, отсортированных по количеству активных задач."""
 
     def busy_employees(self, request):
-        employees = Employee.objects.annotate(task_count=Count("tasks")).order_by(
-            "task_count"
-        )
-        # print(employees)
+
+        employees = Employee.objects.annotate(
+            task_count=Count("tasks", filter=Q(tasks__is_active=True))
+        ).order_by("task_count")
+
         data = []
         for emp in employees:
+            active_tasks = emp.tasks.filter(is_active=True).values_list("title", flat=True)
             data.append(
                 {
                     "Фамилия": emp.last_name,
                     "Имя": emp.first_name,
                     "Количество активных задач": emp.task_count,
+                    "Названия активных задач": list(active_tasks),
                 }
             )
+
         return Response(data)
