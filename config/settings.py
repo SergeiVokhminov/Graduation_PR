@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = True if os.getenv("DEBUG") == "True" else False
 
 # Список разрешенных доменов (используется "*" для разрешения всех), которые могут обслуживаться приложением.
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Содержит список всех приложений, активированных в проекте.
 # После создания своих приложений, их необходимо прописать тут!
@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     "rest_framework",
     "rest_framework_simplejwt",
     "django_filters",
@@ -83,7 +84,7 @@ DATABASES = {
         "NAME": os.getenv("POSTGRES_DB"),
         "USER": os.getenv("POSTGRES_USER"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-        "HOST": os.getenv("POSTGRES_HOST"),
+        "HOST": os.getenv("POSTGRES_HOST", default="db"),
         "PORT": os.getenv("POSTGRES_PORT", default="5432"),
     }
 }
@@ -155,8 +156,8 @@ REST_FRAMEWORK = {
     ],
 }
 
-# Настройки срока действия токенов
+# Настройки срока действия токенов minutes=30
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
