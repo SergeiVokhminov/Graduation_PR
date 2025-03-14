@@ -59,7 +59,9 @@ class BusyEmployeesView(viewsets.ViewSet):
 
         data = []
         for emp in employees:
-            active_tasks = emp.tasks.filter(is_active=True).values_list("title", flat=True)
+            active_tasks = emp.tasks.filter(is_active=True).values_list(
+                "title", flat=True
+            )
             data.append(
                 {
                     "Фамилия": emp.last_name,
