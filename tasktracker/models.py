@@ -63,7 +63,7 @@ class Task(models.Model):
     created_at = models.DateField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateField(auto_now=True, verbose_name="Дата обновления")
     is_active = models.BooleanField(
-        default=True, verbose_name="Признак активной задачи"
+        default=False, verbose_name="Признак активной задачи"
     )
     is_related = models.BooleanField(
         default=False, verbose_name="Признак связанной задачи"

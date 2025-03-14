@@ -1,8 +1,12 @@
 from django.db.models import Count
 from rest_framework import viewsets
-from rest_framework.generics import (CreateAPIView, DestroyAPIView,
-                                     ListAPIView, RetrieveAPIView,
-                                     UpdateAPIView)
+from rest_framework.generics import (
+    CreateAPIView,
+    DestroyAPIView,
+    ListAPIView,
+    RetrieveAPIView,
+    UpdateAPIView,
+)
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -61,6 +65,7 @@ class ImportantTasksView(viewsets.ViewSet):
 
         dependent_tasks = Task.objects.filter(
             parent_task__isnull=False,
+            status="free",
         )
         print(dependent_tasks)
 

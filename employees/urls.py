@@ -1,9 +1,14 @@
 from django.urls import path
 
 from employees.apps import EmployeesConfig
-from employees.views import (BusyEmployeesView, EmployeeCreateAPIView,
-                             EmployeeDestroyAPIView, EmployeeListAPIView,
-                             EmployeeRetrieveAPIView, EmployeeUpdateAPIView)
+from employees.views import (
+    BusyEmployeesView,
+    EmployeeCreateAPIView,
+    EmployeeDestroyAPIView,
+    EmployeeListAPIView,
+    EmployeeRetrieveAPIView,
+    EmployeeUpdateAPIView,
+)
 
 app_name = EmployeesConfig.name
 

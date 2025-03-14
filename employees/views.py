@@ -1,8 +1,12 @@
 from django.db.models import Count
 from rest_framework import viewsets
-from rest_framework.generics import (CreateAPIView, DestroyAPIView,
-                                     ListAPIView, RetrieveAPIView,
-                                     UpdateAPIView)
+from rest_framework.generics import (
+    CreateAPIView,
+    DestroyAPIView,
+    ListAPIView,
+    RetrieveAPIView,
+    UpdateAPIView,
+)
 from rest_framework.response import Response
 
 from employees.models import Employee
@@ -52,12 +56,13 @@ class BusyEmployeesView(viewsets.ViewSet):
             "task_count"
         )
         # print(employees)
-        data = [
-            {
-                "Фамилия": emp.last_name,
-                "Имя": emp.first_name,
-                "Количество активных задач": emp.task_count,
-            }
-            for emp in employees
-        ]
+        data = []
+        for emp in employees:
+            data.append(
+                {
+                    "Фамилия": emp.last_name,
+                    "Имя": emp.first_name,
+                    "Количество активных задач": emp.task_count,
+                }
+            )
         return Response(data)

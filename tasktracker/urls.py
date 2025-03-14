@@ -1,9 +1,14 @@
 from django.urls import path
 
 from tasktracker.apps import TasktrackerConfig
-from tasktracker.views import (ImportantTasksView, TaskCreateAPIView,
-                               TaskDeleteAPIView, TaskListAPIView,
-                               TaskRetrieveAPIView, TaskUpdateAPIView)
+from tasktracker.views import (
+    ImportantTasksView,
+    TaskCreateAPIView,
+    TaskDeleteAPIView,
+    TaskListAPIView,
+    TaskRetrieveAPIView,
+    TaskUpdateAPIView,
+)
 
 app_name = TasktrackerConfig.name
 
