@@ -7,6 +7,7 @@ from tasktracker.views import (
     TaskListAPIView,
     TaskRetrieveAPIView,
     TaskUpdateAPIView,
+    ImportantTasksView,
 )
 
 app_name = TasktrackerConfig.name
@@ -17,4 +18,9 @@ urlpatterns = [
     path("detail/<int:pk>/", TaskRetrieveAPIView.as_view(), name="task_detail"),
     path("update/<int:pk>/", TaskUpdateAPIView.as_view(), name="task_update"),
     path("delete/<int:pk>/", TaskDeleteAPIView.as_view(), name="task_delete"),
+    path(
+        "important/",
+        ImportantTasksView.as_view({"get": "important_tasks"}),
+        name="task_important",
+    ),
 ]
