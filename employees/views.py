@@ -1,3 +1,6 @@
+from django.db import models
+from django.db.models import Count, Q
+from rest_framework import viewsets
 from rest_framework.generics import (
     CreateAPIView,
     DestroyAPIView,
@@ -5,6 +8,7 @@ from rest_framework.generics import (
     RetrieveAPIView,
     UpdateAPIView,
 )
+from rest_framework.response import Response
 
 from employees.models import Employee
 from employees.serializers import EmployeeSerializer
@@ -43,3 +47,22 @@ class EmployeeDestroyAPIView(DestroyAPIView):
 
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
+
+
+class BusyEmployeesView(viewsets.ViewSet):
+    """Просмотр сотрудников и их задач, отсортированных по количеству активных задач."""
+
+    def busy_employees(self, request):
+        employees = Employee.objects.annotate(task_count=Count("tasks")).order_by(
+            "task_count"
+        )
+        # print(employees)
+        data = [
+            {
+                "Фамилия": emp.last_name,
+                "Имя": emp.first_name,
+                "Количество активных задач": emp.task_count,
+            }
+            for emp in employees
+        ]
+        return Response(data)
