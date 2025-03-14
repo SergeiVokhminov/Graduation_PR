@@ -59,7 +59,8 @@ class TaskDeleteAPIView(DestroyAPIView):
 
 
 class ImportantTasksView(viewsets.ViewSet):
-    """Класс для просмотра задач, которые не взяты в работу, но от которых зависят другие задачи, взятые в работу."""
+    """Класс для просмотра важных задач, которые не взяты в работу.
+    Но от которых зависят другие задачи, взятые в работу."""
 
     def important_tasks(self, request):
 
@@ -67,17 +68,18 @@ class ImportantTasksView(viewsets.ViewSet):
             parent_task__isnull=False,
             status="free",
         )
-        print(dependent_tasks)
 
+        # Определяем сотрудников с активными задачами по возрастанию
         important_tasks_info = []
         for task in dependent_tasks:
             employees = Employee.objects.annotate(task_count=Count("tasks")).order_by(
                 "task_count"
             )
 
-            # Наименее загруженный сотрудник
+            # Определяем наименее загруженного сотрудника
             least_busy_employee = employees.first()
-            # print(least_busy)
+
+            # Список возможных исполнителей
             available_employees = []
 
             for employee in employees:
