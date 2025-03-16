@@ -1,291 +1,72 @@
 [
 {
-    "model": "tasktracker.task",
+    "model": "employees.employee",
     "pk": 1,
     "fields": {
-        "title": "Главная задача №1",
-        "description": "",
-        "parent_task": null,
-        "employee": 4,
-        "status": "start",
-        "deadline": "2025-04-30",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": false,
-        "owner": 1
+        "first_name": "Антон",
+        "last_name": "Антонов",
+        "patronymic": null,
+        "position": "Django-разработчик"
     }
 },
 {
-    "model": "tasktracker.task",
+    "model": "employees.employee",
     "pk": 2,
     "fields": {
-        "title": "Связанная задача 1",
-        "description": "",
-        "parent_task": 1,
-        "employee": 5,
-        "status": "start",
-        "deadline": "2025-04-18",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": true,
-        "owner": 1
+        "first_name": "Борис",
+        "last_name": "Борисов",
+        "patronymic": "Борисович",
+        "position": "Python-разработчик"
     }
 },
 {
-    "model": "tasktracker.task",
+    "model": "employees.employee",
     "pk": 3,
     "fields": {
-        "title": "Связанная задача 1-1",
-        "description": "",
-        "parent_task": 1,
-        "employee": 6,
-        "status": "start",
-        "deadline": "2025-04-18",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": true,
-        "owner": 1
+        "first_name": "Вадим",
+        "last_name": "Вадимов",
+        "patronymic": null,
+        "position": "Java-разработчик"
     }
 },
 {
-    "model": "tasktracker.task",
+    "model": "employees.employee",
     "pk": 4,
     "fields": {
-        "title": "Тесты к главной задаче 1",
-        "description": "",
-        "parent_task": 1,
-        "employee": 7,
-        "status": "start",
-        "deadline": "2025-04-22",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": true,
-        "owner": 1
+        "first_name": "Кирилл",
+        "last_name": "Кирилов",
+        "patronymic": null,
+        "position": "Fullstack-разработчик"
     }
 },
 {
-    "model": "tasktracker.task",
+    "model": "employees.employee",
     "pk": 5,
     "fields": {
-        "title": "Django проект",
-        "description": "",
-        "parent_task": null,
-        "employee": 1,
-        "status": "start",
-        "deadline": "2025-06-20",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": false,
-        "owner": null
+        "first_name": "Максим",
+        "last_name": "Максимов",
+        "patronymic": null,
+        "position": "Frontend-разработчик"
     }
 },
 {
-    "model": "tasktracker.task",
+    "model": "employees.employee",
     "pk": 6,
     "fields": {
-        "title": "Связанная с django проектом",
-        "description": "",
-        "parent_task": 5,
-        "employee": 2,
-        "status": "start",
-        "deadline": "2025-05-09",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": true,
-        "owner": null
+        "first_name": "Семен",
+        "last_name": "Семенов",
+        "patronymic": null,
+        "position": "Backend-разработчик"
     }
 },
 {
-    "model": "tasktracker.task",
+    "model": "employees.employee",
     "pk": 7,
     "fields": {
-        "title": "Тесты к django проекту",
-        "description": "",
-        "parent_task": 5,
-        "employee": 7,
-        "status": "start",
-        "deadline": "2025-06-06",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": true,
-        "owner": null
-    }
-},
-{
-    "model": "tasktracker.task",
-    "pk": 8,
-    "fields": {
-        "title": "Главная задача №2",
-        "description": "",
-        "parent_task": null,
-        "employee": 3,
-        "status": "start",
-        "deadline": "2025-07-04",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": false,
-        "owner": 1
-    }
-},
-{
-    "model": "tasktracker.task",
-    "pk": 9,
-    "fields": {
-        "title": "Связанная задача 2",
-        "description": "",
-        "parent_task": 8,
-        "employee": null,
-        "status": "free",
-        "deadline": null,
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": true,
-        "owner": null
-    }
-},
-{
-    "model": "tasktracker.task",
-    "pk": 10,
-    "fields": {
-        "title": "Связанная задача 2-2",
-        "description": "",
-        "parent_task": 8,
-        "employee": null,
-        "status": "free",
-        "deadline": "2025-05-22",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": true,
-        "owner": null
-    }
-},
-{
-    "model": "tasktracker.task",
-    "pk": 11,
-    "fields": {
-        "title": "Задача 2",
-        "description": "",
-        "parent_task": null,
-        "employee": 1,
-        "status": "start",
-        "deadline": "2025-03-31",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": false,
-        "owner": 1
-    }
-},
-{
-    "model": "tasktracker.task",
-    "pk": 12,
-    "fields": {
-        "title": "Задача 3",
-        "description": "",
-        "parent_task": null,
-        "employee": 4,
-        "status": "done",
-        "deadline": "2025-03-19",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": false,
-        "owner": 1
-    }
-},
-{
-    "model": "tasktracker.task",
-    "pk": 13,
-    "fields": {
-        "title": "Задача 4",
-        "description": "",
-        "parent_task": null,
-        "employee": 4,
-        "status": "done",
-        "deadline": "2025-03-21",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": false,
-        "owner": 1
-    }
-},
-{
-    "model": "tasktracker.task",
-    "pk": 14,
-    "fields": {
-        "title": "Задача 5",
-        "description": "",
-        "parent_task": null,
-        "employee": 7,
-        "status": "start",
-        "deadline": "2025-03-31",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": false,
-        "owner": null
-    }
-},
-{
-    "model": "tasktracker.task",
-    "pk": 15,
-    "fields": {
-        "title": "Задача 6",
-        "description": "",
-        "parent_task": null,
-        "employee": 7,
-        "status": "start",
-        "deadline": "2025-03-27",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": false,
-        "owner": null
-    }
-},
-{
-    "model": "tasktracker.task",
-    "pk": 16,
-    "fields": {
-        "title": "Задача 7",
-        "description": "",
-        "parent_task": null,
-        "employee": 1,
-        "status": "start",
-        "deadline": "2025-07-18",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": true,
-        "is_related": false,
-        "owner": null
-    }
-},
-{
-    "model": "tasktracker.task",
-    "pk": 17,
-    "fields": {
-        "title": "Задача 8",
-        "description": "",
-        "parent_task": null,
-        "employee": null,
-        "status": "closed",
-        "deadline": "2025-09-11",
-        "created_at": "2025-03-14",
-        "updated_at": "2025-03-14",
-        "is_active": false,
-        "is_related": false,
-        "owner": null
+        "first_name": "Александ",
+        "last_name": "Александров",
+        "patronymic": null,
+        "position": "Тестировщик"
     }
 }
 ]
