@@ -1,8 +1,8 @@
 from django.utils import timezone
 from rest_framework.test import APITestCase
 
-from tasktracker.models import Task
 from employees.models import Employee
+from tasktracker.models import Task
 from users.models import User
 
 
@@ -40,7 +40,7 @@ class TaskTestCase(APITestCase):
             status="free",
             deadline=timezone.now().date() + timezone.timedelta(days=7),
             owner=self.user,
-            is_active=True
+            is_active=True,
         )
 
     def test_task_creation(self):
