@@ -14,35 +14,35 @@ from employees.serializers import EmployeeSerializer
 
 
 class EmployeeCreateAPIView(CreateAPIView):
-    """Создание нового работника."""
+    """Создание нового сотрудника."""
 
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
 
 
 class EmployeeListAPIView(ListAPIView):
-    """Просмотр списка работников."""
+    """Просмотр списка сотрудника."""
 
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
 
 
 class EmployeeRetrieveAPIView(RetrieveAPIView):
-    """Просмотр информации о работнике."""
+    """Просмотр информации о сотруднике."""
 
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
 
 
 class EmployeeUpdateAPIView(UpdateAPIView):
-    """Редактирование информации о работнике."""
+    """Редактирование информации о сотруднике."""
 
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
 
 
 class EmployeeDestroyAPIView(DestroyAPIView):
-    """Удаление работника."""
+    """Удаление сотрудника."""
 
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
