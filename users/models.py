@@ -1,0 +1,46 @@
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+
+class User(AbstractUser):
+    """Поля для модели пользователя."""
+
+    username = None
+    email = models.EmailField(
+        unique=True, verbose_name="Электронная почта", help_text="Введите почту"
+    )
+    phone_number = models.CharField(
+        max_length=35,
+        verbose_name="Номер телефона",
+        help_text="Введите номер телефона",
+        blank=True,
+        null=True,
+    )
+    city = models.CharField(
+        max_length=50,
+        verbose_name="Город",
+        help_text="Введите город",
+        blank=True,
+        null=True,
+    )
+    avatar = models.ImageField(
+        upload_to="photo/avatars/",
+        verbose_name="Аватар",
+        help_text="Загрузите Ваш аватар",
+        blank=True,
+        null=True,
+    )
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
+
+    def __str__(self):
+        """Метод для строкового представления объекта User."""
+
+        return f"{self.email}"
+
+    class Meta:
+        """Мета-информация модели User."""
+
+        verbose_name = "Пользователь"
+        verbose_name_plural = "Пользователи"

@@ -1,0 +1,72 @@
+[
+{
+    "model": "employees.employee",
+    "pk": 1,
+    "fields": {
+        "first_name": "Антон",
+        "last_name": "Антонов",
+        "patronymic": null,
+        "position": "Django-разработчик"
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 2,
+    "fields": {
+        "first_name": "Борис",
+        "last_name": "Борисов",
+        "patronymic": "Борисович",
+        "position": "Python-разработчик"
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 3,
+    "fields": {
+        "first_name": "Вадим",
+        "last_name": "Вадимов",
+        "patronymic": null,
+        "position": "Java-разработчик"
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 4,
+    "fields": {
+        "first_name": "Кирилл",
+        "last_name": "Кирилов",
+        "patronymic": null,
+        "position": "Fullstack-разработчик"
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 5,
+    "fields": {
+        "first_name": "Максим",
+        "last_name": "Максимов",
+        "patronymic": null,
+        "position": "Frontend-разработчик"
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 6,
+    "fields": {
+        "first_name": "Семен",
+        "last_name": "Семенов",
+        "patronymic": null,
+        "position": "Backend-разработчик"
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 7,
+    "fields": {
+        "first_name": "Александ",
+        "last_name": "Александров",
+        "patronymic": null,
+        "position": "Тестировщик"
+    }
+}
+]
